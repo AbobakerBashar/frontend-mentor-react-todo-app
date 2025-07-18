@@ -15,8 +15,9 @@ function App() {
 	useEffect(() => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 		localStorage.setItem("mode", JSON.stringify(isModeDark));
+		document.querySelector("body").classList.toggle("dark-mode", isModeDark);
 	}, [todos, isModeDark]);
-	// localStorage.removeItem("todos");
+
 	const [displyedTodos, setDisplyedTodos] = useState("all");
 	const [show, setShown] = useState({
 		all: true,
@@ -39,13 +40,13 @@ function App() {
 	}
 
 	return (
-		<main className={isModeDark ? "dark-container" : "light-container"}>
+		<main>
 			<AddTodo
 				setTodos={setTodos}
 				isModeDark={isModeDark}
 				setIsModeDark={setIsModeDark}
 			/>
-			<article className={isModeDark ? "dark" : "light"}>
+			<article>
 				<TodoList
 					todos={todos}
 					displyedTodos={displyedTodos}
@@ -104,6 +105,7 @@ function App() {
 					</button>
 				</div>
 			)}
+			<p>Drag and drop to reorder list</p>
 		</main>
 	);
 }

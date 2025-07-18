@@ -25,7 +25,7 @@ export default function AddTodo({ setTodos, isModeDark, setIsModeDark }) {
 	}
 
 	return (
-		<section className={isModeDark ? "dark-form-sec" : "light-form-sec"}>
+		<section className="form-sec">
 			<header>
 				<h3>Todo</h3>
 				<img
