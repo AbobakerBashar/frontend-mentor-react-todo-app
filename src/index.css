@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+	--Bright-Blue: hsl(220, 98%, 61%);
+	--Check-Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+	--Very-Light-Gray: hsl(0, 0%, 98%);
+	--Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+	--Light-Grayish-Blue: hsl(236, 33%, 92%);
+	--Dark-Blue: hsl(235, 24%, 19%);
+	--Very-Dark-Blue: hsl(235, 21%, 11%);
+	--Grayish-50: hsl(233, 11%, 84%);
+	--Grayish-100: hsl(234, 39%, 85%);
+	--Grayish-200: hsl(236, 9%, 61%);
+	--Grayish-300: hsl(234, 11%, 52%);
+	--Grayish-400: hsl(233, 14%, 35%);
+	--Grayish-500: hsl(235, 19%, 35%);
+	--Grayish-600: hsl(237, 14%, 26%);
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: "Josefin Sans", sans-serif;
+}
+.dark-container,
+.light-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 20px;
+	gap: 25px;
+	position: relative;
+}
+.dark-container::before,
+.light-container::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 220px;
+	z-index: -1;
+}
+.dark-container::after,
+.light-container::after {
+	position: absolute;
+	content: "";
+	top: 220px;
+	left: 0;
+	width: 100%;
+	height: calc(100vh - 220px);
+	z-index: -1;
+}
+.dark-container::before {
+	background-image: url(../public/images/bg-desktop-dark.jpg);
+}
+.light-container::before {
+	background-image: url(../public/images/bg-desktop-light.jpg);
+}
+.dark-container::after {
+	background-color: var(--Very-Dark-Blue);
+}
+.light-container::after {
+	background-color: var(--Light-Grayish-Blue);
+}
+@media (max-width: 920px) {
+	.dark-container::before,
+	.light-container::before {
+		background-size: contain;
+	}
+}
+.dark-form-sec,
+.light-form-sec {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+.dark-form-sec header,
+.light-form-sec header {
+	width: 46%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+@media (max-width: 920px) {
+	.dark-form-sec header,
+	.light-form-sec header {
+		width: 57%;
+	}
+}
+@media (max-width: 820px) {
+	.dark-form-sec header,
+	.light-form-sec header {
+		width: 80%;
+	}
+}
+@media (max-width: 700px) {
+	.dark-form-sec header,
+	.light-form-sec header {
+		width: 90%;
+	}
+}
+@media (max-width: 590px) {
+	.dark-form-sec header,
+	.light-form-sec header {
+		width: 100%;
+	}
+}
+.dark-form-sec header h3,
+.light-form-sec header h3 {
+	letter-spacing: 9px;
+	font-size: 32px;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: var(--Very-Light-Gray);
+	margin: 30px 0;
+}
+.dark-form-sec header img,
+.light-form-sec header img {
+	width: 16px;
+	cursor: pointer;
+}
+.dark-form-sec form,
+.light-form-sec form {
+	width: 46%;
+	display: flex;
+	gap: 5px;
+	border-radius: 6px;
+	padding: 15px;
+	align-items: center;
+}
+@media (max-width: 920px) {
+	.dark-form-sec form,
+	.light-form-sec form {
+		width: 57%;
+	}
+}
+@media (max-width: 820px) {
+	.dark-form-sec form,
+	.light-form-sec form {
+		width: 80%;
+	}
+}
+@media (max-width: 700px) {
+	.dark-form-sec form,
+	.light-form-sec form {
+		width: 90%;
+	}
+}
+@media (max-width: 590px) {
+	.dark-form-sec form,
+	.light-form-sec form {
+		width: 100%;
+	}
+}
+.dark-form-sec form {
+	background-color: var(--Dark-Blue);
+}
+.light-form-sec form {
+	background-color: var(--Very-Light-Gray);
+}
+button {
+	background: none;
+	cursor: pointer;
+	transition: 0.3s;
+}
+button:not(.desktop button, .mobile button, .mobile-btns button) {
+	width: 18px;
+	height: 18px;
+	border: 1px solid;
+	border-radius: 50%;
+}
+.dark-container
+	button:not(.desktop button, .mobile button, .mobile-btns button) {
+	border-color: var(--Grayish-600);
+}
+.dark-container form button:hover {
+	border-color: var(--Grayish-500);
+}
+.light-container
+	button:not(.desktop button, .mobile button, .mobile-btns button) {
+	border-color: var(--Grayish-100);
+}
+.light-container form button:hover {
+	border-color: var(--Grayish-100);
+	border-color: var(--Grayish-200);
+}
+.dark-form-sec form input,
+.light-form-sec form input {
+	background: none;
+	border: none;
+	flex: 1;
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 18px;
+	padding: 5px 0 5px 10px;
+	caret-color: var(--Bright-Blue);
+}
+.dark-form-sec form input {
+	caret-color: var();
+	color: var(--Grayish-200);
+}
+.light-form-sec form input {
+	color: var(--Grayish-500);
+	caret-color: var();
+}
+.dark-form-sec form input:focus,
+.light-form-sec form input:focus {
+	outline: none;
+}
+.dark-form-sec form input::placeholder {
+	color: var(--Grayish-300);
+}
+.light-form-sec form input::placeholder {
+	color: var(--Grayish-200);
+}
+
+/* Start Todos */
+article {
+	border-radius: 6px;
+	width: 46%;
+}
+@media (max-width: 920px) {
+	article.dark,
+	article.light {
+		width: 57%;
+	}
+}
+@media (max-width: 820px) {
+	article.dark,
+	article.light {
+		width: 80%;
+	}
+}
+@media (max-width: 700px) {
+	article.dark,
+	article.light {
+		width: 90%;
+	}
+}
+@media (max-width: 590px) {
+	article.dark,
+	article.light {
+		width: 100%;
+	}
+}
+article.dark,
+.dark-container .mobile-btns {
+	background-color: var(--Dark-Blue);
+}
+article.light,
+.light-container .mobile-btns {
+	background-color: var(--Very-Light-Gray);
+}
+.todos-list {
+	width: 100%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	touch-action: none;
+}
+.todos-list li {
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1.4px solid;
+	transition: 0.3s;
+	width: 100%;
+	font-weight: 600;
+	font-size: 17px;
+}
+.dark li:active {
+	background-color: var(--Grayish-400);
+}
+.todos-list > li div {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	flex: 1;
+}
+.todos-list li button {
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.dark-container li button {
+	background-color: var(--Dark-Blue);
+}
+.light-container li button {
+	background-color: var(--Very-Light-Gray);
+}
+.todos-list li div.btn {
+	border-radius: 50%;
+	padding: 1px;
+}
+li span {
+	width: 100%;
+}
+.todos-list li:not(.completed) div.btn:hover {
+	background: linear-gradient(
+		to right,
+		hsl(192, 100%, 67%),
+		hsl(280, 87%, 65%)
+	);
+}
+.todos-list li.completed button {
+	background: linear-gradient(
+		to right,
+		hsl(192, 100%, 67%),
+		hsl(280, 87%, 65%)
+	);
+}
+.todos-list li .cross-icon {
+	width: 12px;
+	justify-self: flex-end;
+	cursor: pointer;
+}
+.dark-container .todos-list li {
+	color: var(--Grayish-100);
+	border-color: var(--Grayish-600);
+}
+.dark-container .todos-list li.completed {
+	color: var(--Grayish-500);
+	text-decoration: line-through;
+}
+.light .todos-list li {
+	border-color: var(--Grayish-100);
+	color: var(--Grayish-300);
+}
+.light .todos-list li.completed {
+	color: var(--Grayish-100);
+	text-decoration: line-through;
+}
+.desktop {
+	display: flex;
+	width: 100%;
+	padding: 22px;
+	justify-content: space-between;
+	align-items: center;
+}
+.mobile,
+.mobile-btns {
+	display: none;
+}
+@media (max-width: 590px) {
+	.desktop {
+		display: none;
+	}
+	.mobile,
+	.mobile-btns {
+		display: flex;
+	}
+}
+.desktop button,
+.mobile button,
+.mobile-btns button {
+	border: none;
+	font-family: "Josefin Sans", sans-serif;
+	font-weight: 600;
+}
+.mobile,
+.mobile-btns {
+	padding: 18px;
+	justify-content: space-between;
+}
+.mobile-btns {
+	width: 100%;
+	border-radius: 6px;
+	justify-content: center;
+}
+.mobile-btns button {
+	font-weight: 700;
+	font-size: 15px;
+}
+.dark .desktop button,
+.dark .desktop span,
+.dark .mobile button,
+.dark .mobile span,
+.dark-container .mobile button,
+.dark-container .mobile span,
+.dark-container .mobile-btns button,
+.dark-container .mobile-btns span {
+	color: var(--Grayish-400);
+}
+.light .desktop button,
+.light .desktop span,
+.light .mobile button,
+.light .mobile span,
+.light-container .mobile span,
+.light-container .mobile button,
+.light-container .mobile-btns span,
+.light-container .mobile-btns button {
+	color: var(--Grayish-200);
+}
+.desktop button.active,
+.mobile button.active,
+.mobile-btns button.active {
+	color: var(--Bright-Blue);
+}
+.dark .desktop button:not(button.active):hover,
+.dark-container .mobile button:not(button.active):hover,
+.dark-container .mobile-btns button:not(button.active):hover {
+	color: var(--Grayish-100);
+}
+.light .desktop button:not(.active):hover,
+.light-container .mobile button:not(.active):hover,
+.light-container .mobile-btns button:not(.active):hover {
+	color: var(--Grayish-400);
+}
+
+/* End Todos */
